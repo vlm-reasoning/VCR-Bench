@@ -6,7 +6,7 @@
     <meta name="description" content="ShareGPT4V: Improving Large Multi-Modal Models with Better Captions">
     <meta name="keywords" content="GPT4-Vision">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ShareGPT4V</title>
+    <title>VCR-Bench</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
@@ -164,13 +164,24 @@
 
               <div class="column has-text-centered">
                 <div class="publication-links">
+                    <span class="link-block">
+                    <!-- TODO: change links -->
+                      <a href="https://arxiv.org/pdf/2502.09621"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                    <span>Paper</span>
+                    </a>
+                  </span>
+                  <!-- Paper Link.-->
                   <span class="link-block">
                     <a href="https://eccv.ecva.net/virtual/2024/poster/765" target="_blank"
                       class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
                         <i class="ai ai-arxiv"></i>
                       </span>
-                      <span>Paper</span>
+                      <span>arVix</span>
                     </a>
                   </span>
                   <!-- Code Link. -->
@@ -205,13 +216,13 @@
             <h2 class="title is-3">Abstract</h2>
             <div class="content has-text-justified">
               <p>
-                In the realm of large multi-modal models (LMMs), efficient modality alignment is crucial yet often constrained by the scarcity of high-quality image-text data. 
-                To address this bottleneck, we introduce the ShareGPT4V dataset, a pioneering large-scale resource featuring 1.2 million highly descriptive captions, 
-                which surpasses existing datasets in diversity and information content, covering world knowledge, object properties, spatial relationships, and aesthetic evaluations. 
-                Specifically, ShareGPT4V originates from a curated <b>100K</b> high-quality captions collected from advanced GPT4-Vision and has been expanded to <b>1.2 million</b> with a superb caption model trained on this subset. 
-                ShareGPT4V first demonstrates its effectiveness for the Supervised Fine-Tuning (SFT) phase, by substituting an equivalent quantity of detailed captions in existing SFT datasets with a subset of our high-quality captions, significantly enhancing the LMMs like LLaVA-7B, LLaVA-1.5-13B, and Qwen-VL-Chat-7B on the MME and MMBench benchmarks, with respective gains of <b>222.8/22.0/22.3</b> and <b>2.7/1.3/1.5</b>. 
-                We further incorporate ShareGPT4V data into both the pre-training and SFT phases, obtaining ShareGPT4V-7B, a superior LMM based on a simple architecture that has remarkable performance across a majority of the multi-modal benchmarks. 
-                We will release this project to serve as a pivotal resource for advancing the LMMs community.
+                The advancement of Chain-of-Thought (CoT) reasoning has significantly enhanced the capabilities of large language models (LLMs) and large vision-language models (LVLMs).
+                However, a rigorous evaluation framework for video CoT reasoning remains absent. Current video benchmarks fail to adequately assess the reasoning process and expose whether failures stem from deficiencies in perception or reasoning capabilities. 
+                Therefore, we introduce VCR-Bench, a novel benchmark designed to comprehensively evaluate LVLMs’ Video Chain-of-Thought Reasoning capabilities. VCR-Bench comprises 859 videos spanning a variety of video content and durations, along with 1,034 high-quality question-answer pairs. 
+                Each pair is manually annotated with a stepwise CoT rationale, where every step is tagged to indicate its association with the perception or reasoning capabilities. Furthermore,we design seven distinct task dimensions and propose the CoT score to assess the entire CoT process based on the stepwise tagged CoT rationals.
+                Extensive experiments on VCR-Bench highlight substantial limitations in current LVLMs. Even the top-performing model, o1, only achieves a 62.8% CoT score and an 56.7% accuracy, while most models score below 40%. 
+                Experiments show most models score lower on perception than reasoning steps, revealing LVLMs’ key bottleneck in temporal-spatial information processing for complex video reasoning.
+                A robust positive correlation between the CoT score and accuracy confirms the validity of our evaluation framework and underscores the critical role of CoT reasoning in solving complex video reasoning tasks. We hope VCR-Bench to serve as a standardized evaluation framework and expose the actual drawbacks in complex video reasoning.
               </p>
             </div>
           </div>
