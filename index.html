@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="leaderboard.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -185,7 +186,7 @@
                   </span>
                   <!-- Code Link. -->
                   <span class="link-block">
-                    <a href="https://github.com/ShareGPT4Omni/ShareGPT4V" target="_blank"
+                    <a href="https://github.com/zhishuifeiqian/VCR-Bench" target="_blank"
                       class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
                         <i class="fab fa-github"></i>
@@ -195,10 +196,17 @@
                   </span>
                   <!-- Dataset Link. -->
                   <span class="link-block">
-                    <a href="https://huggingface.co/datasets/CaraJ/MME-CoT"
+                    <a href="https://huggingface.co/datasets/VLM-Reasoning/VCR-Bench"
                       class="external-link button is-normal is-rounded is-dark">
                       <span>🤗 Dataset</span>
                     </a>
+                  </span>
+                  <!-- Leaderboard Link. -->
+                  <span class="link-block">
+                    <a href="https://mmecot.github.io/#leaderboard"
+                      class="external-link button is-normal is-rounded is-dark">
+                    <span>🏆 Leaderboard</span>
+                  </a>
                   </span>
                 </div>
               </div>
@@ -229,155 +237,70 @@
       </div>
     </section>
     
-    <section class="section" id="ShareGPT4V">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-six-fifths">
-          <h2 class="title is-3"><img id="logo" width="3%" src="images/logo.png"> ShareGPT4V Dataset (100K)</h2>
-        </div>
-      </div>
-      <div class="container is-max-desktop">
+    <section class="section">
+      <div class="container">
+        
         <div class="columns is-centered">
-          <div class="column is-full-width">
-            <div class="content has-text-justified">
-              <style>
-                table.GeneratedTable {
-                  width: 100%;
-                  background-color: #ffffff;
-                  border-collapse: collapse;
-                  border-width: 2px;
-                  border-color: #c1c4c5;
-                  border-style: solid;
-                  color: #000000;
-                }
-                
-                table.GeneratedTable td, table.GeneratedTable th {
-                  border-width: 2px;
-                  border-color: #9b9d9e;
-                  border-style: solid;
-                  padding: 3px;
-                }
-                
-                table.GeneratedTable thead {
-                  background-color: #6691ee;
-                }
-              </style>
-              <div class="column is-six-fifths" width="80%">
-              <table class="GeneratedTable">
+          <div class="column is-full has-text-centered content">
+            <h2 class="title is-3" id="leaderboard">Leaderboard</h2>
+            <div class="content">
+              <table class="js-sort-table" id="results">
                 <thead>
                   <tr>
-                    <th>Dataset Name</th>
-                    <th>Image Source</th>
-                    <th>Visible</th>
-                    <th>Captioned by</th>
-                    <th>Samples</th>
-                    <th>Avg.</th>
+                    <th rowspan="1" style="vertical-align: middle;"><strong>#</strong></th>
+                    <th rowspan="1" style="vertical-align: middle;"><strong>Model</strong></th>
+                  </tr>
+                  <tr>
+                    <th><strong>FTR</strong></th>
+                    <th><strong>VTC</strong></th>
+                    <th><strong>VTG</strong></th>
+                    <th><strong>VKR</strong></th>
+                    <th><strong>TSR</strong></th>
+                    <th><strong>VPA</strong></th>
+                    <th><strong>TSG</strong></th>
+                    <th><strong>Avg</strong></th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>COCO-Caption</td>
-                    <td>COCO</td>
-                    <td>✔︎</td>
-                    <td>Human</td>
-                    <td>118K</td>
-                    <td>52</td>
+                    <td>1</td>
+                    <td><b class="best-score-text">Gemini-2.0-Flash 🥇</b></td>
+                    <td><u>66.2</u></td>
+                    <td><u>51.2</u></td>
+                    <td><b>62.0</b></td>
+                    <td>64.4</td>
+                    <td><u>54.1</u></td>
+                    <td><u>58.1</u></td>
+                    <td><b>4.2</b></td>
+                    <td><u>51.7</u></td>
                   </tr>
                   <tr>
-                    <td>BLIP-LCS</td>
-                    <td>LCS</td>
-                    <td>✔︎</td>
-                    <td>BLIP</td>
-                    <td>558K</td>
-                    <td>54</td>
+                    <td>2</td>
+                    <td><b class="best-score-text">Gemini-1.5-Pro 🥈</b></td>
+                    <td>55.1</td>
+                    <td>45.3</td>
+                    <td>52.9</td>
+                    <td>62.0</td>
+                    <td>45.0</td>
+                    <td>45.6</td>
+                    <td>0.7</td>
+                    <td>44.0</td>
                   </tr>
                   <tr>
-                    <td>LLaVA-23K</td>
-                    <td>COCO</td>
-                    <td>✗</td>
-                    <td>GPT4</td>
-                    <td>23K</td>
-                    <td>609</td>
-                  </tr>
-                  <tr bgcolor="#a4cff4">
-                    <td>ShareGPT4V</td>
-                    <td>LCS, COCO, etc.</td>
-                    <td>✔︎</td>
-                    <td>GPT4-Vision</td>
-                    <td>100K</td>
-                    <td>942</td>
-                  </tr>
-                  <tr bgcolor="#a4cff4">
-                    <td>ShareGPT4V-PT</td>
-                    <td>LCS, COCO, etc.</td>
-                    <td>✔︎</td>
-                    <td>Share-Captioner</td>
-                    <td>1,246K</td>
-                    <td>826</td>
+                    <td>3</td>
+                    <td><b class="best-score-text">o1 🥉</b></td>
+                    <td><b>66.7</b></td>
+                    <td><b>52.2</b></td>
+                    <td><u>56.9</u></td>
+                    <td><b>74.3</b></td>
+                    <td><b>61.0</b></td>
+                    <td><b>60.2</b></td>
+                    <td>0.0</td>
+                    <td><b>56.7</b></td>
                   </tr>
                 </tbody>
               </table>
-              <p style="font-family:Times New Roman">
-                <font size=4>
-                <b>Comparison of widely-used caption datasets and ShareGPT4V.</b> <b>'LCS'</b> abbreviates the LAION, CC, and SBU datasets.
-                The <b>'Visible'</b> column denotes the image visibility during captioning, and the <b>'Avg.'</b> column shows the average character number of the caption.
-                </font>
-              </p>               
-              </div>
-              <font color="#224baf" size=4><b>
-              <p>
-                We illustrate the procedure for collecting highly descriptive captions from GPT4-Vision via various image sources and data-specific prompts, 
-                resulting in <b>100K high-quality captions</b> that encapsulate a wide array of information conveyed by the images.
-                <centering>
-                  <div style="text-align: center;">
-                    <img id="teaser" width="100%" src="images/datasource_a.png">     
-                  </div>
-                </centering>
-                A comparison between the caption in our proposed <b>ShareGPT4V dataset</b> and those utilized by recent large multi-modal models (LMMs):
-                <div class="columns is-centered has-text-centered">
-                  <div class="column is-six-fifths" style="display: flex; align-items: flex-start; justify-content: center;">  
-                    <centering>
-                      <div style="text-align: center;">
-                        <img id="teaser" width="100%" src="images/compare_a.png">     
-                      </div>
-                    </centering>    
-                  </div>
-                </div>
-              </p>
-              </b></font>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="ShareGPT4V-PT">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-six-fifths">
-          <h2 class="title is-3"><img id="logo" width="3%" src="images/logo.png"> ShareGPT4V-PT Dataset (1.2M)</h2>
-        </div>
-      </div>
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column is-full-width">
-            <font color="#224baf" size=4><b>
-            <div class="content has-text-justified">
-              <p>
-                We delineate the process of utilizing the seed captions to train a general captioner (Share-Captioner)
-                and then employing this captioner to generate <b>1.2M high-quality captions</b> for pre-training usage.
-                <centering>
-                  <div style="text-align: center;">
-                    <img id="teaser" width="100%" src="images/datasource_b.png">     
-                  </div>
-                </centering>
-                A qualitative comparison of caption quality from various sources:
-                <centering>
-                  <div style="text-align: center;">
-                    <img id="teaser" width="100%" src="images/compare_b.png">     
-                  </div>
-                </centering>
-              </p>
-            </div>
-            </b></font>
           </div>
         </div>
       </div>
