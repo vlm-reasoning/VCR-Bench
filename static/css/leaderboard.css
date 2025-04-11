@@ -91,3 +91,8 @@ table#results.js-sort-18 tbody tr td:nth-child(19) {
     color: #C6011F
     /* color: #3457D5 */
 }
+
+.mathvista {
+    font-variant: small-caps;
+    font-weight: bold;
+  }
