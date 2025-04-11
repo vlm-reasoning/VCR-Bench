@@ -15,11 +15,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="./static/css/index.css">
     <link rel="stylesheet" href="./static/css/leaderboard.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
     <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/3.27.0/gradio.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./static/js/sort-table.js" defer></script>
+    <script src="./static/js/fontawesome.all.min.js" defer></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/explorer-index.js"></script>
+    <script src="./static/js/question_card.js"></script>
+    <script src="./static/js/leaderboard_testmini.js"></script>  
   </head>
 
   <style>
@@ -107,6 +118,7 @@
 
   <body>
 
+    <!-- title -->
     <section class="hero">
       <div class="hero-body">
         <div class="container is-max-desktop">
@@ -220,7 +232,8 @@
       </div>
     </section>
 
-    <section class="section"  style="background-color:#efeff081" id="Abstract">
+    <!-- abstract -->
+    <section class="section"  id="Abstract">
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
           <div class="column is-six-fifths">
@@ -238,16 +251,31 @@
             </div>
           </div>
         </div>
+        <div class="box m-5">
+          <div class="content has-text-centered">
+            <img src="static/images/main.png" alt="grade-lv" width="100%"/>
+          </div>
+        </div>
       </div>
     </section>
     
+    <!-- leaderboard -->
+    <section class="hero is-light is-small">
+      <div class="hero-body has-text-centered">
+        <h1 class="title is-1 mathvista">
+          <span class="mathvista" style="vertical-align: middle">VCR-Bench Leaderboard</span>
+        </h1>
+      </div>
+    </section>
     <section class="section">
       <div class="container">
-        
+
         <div class="columns is-centered">
           <div class="column is-full has-text-centered content">
-            <h2 class="title is-3" id="leaderboard">Leaderboard</h2>
             <div class="content">
+                FTR (Fundamental Temporal Reasoning), VTC (Video Temporal Counting), VTG (Video Temporal Grounding), 
+                <br>VKR (logical reasoning), TSR (Temporal Spatial Reasoning), VPA (Video Plot Analysis), TSG (Temporal Spatial Grounding).
+                <br>The <b>best</b> results are highlighted in <b>bold</b> and the <u>second-best</u> are <u>underlined</u>.
               <table class="js-sort-table" id="results">
                 <thead>
                   <tr>
@@ -504,15 +532,134 @@
     <!-- DATASET SECTION -->
     <section class="hero is-light is-small">
       <div class="hero-body has-text-centered">
-        <!-- <h1 class="title is-1 mathvista"><img src="static/images/logo.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>MathVista Dataset</h1> -->
-      <h1 class="title is-1 mathvista">
-        <span class="mathvista" style="vertical-align: middle">VCR-Bench Dataset</span>
-      </h1>
+        <h1 class="title is-1 mathvista">
+          <span class="mathvista" style="vertical-align: middle">VCR-Bench Dataset</span>
+        </h1>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Overview</h2>
+
+            <div class="content has-text-justified">
+              <!-- TODO: 说明文字 -->
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="./static/images/cases_dim.png" alt="data-overview" style="max-width: 100%;"/>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="columns is-centered">
+          <!--TODO: 重新放饼图和分布图-->
+          <div class="column" style="margin-right: 0rem;">
+            <div class="content has-text-centered">
+              <img src="static/images/dataset_overview.png" alt="data-overview" style="max-width: 70%;"/>
+              <p> 
+                Category and subcategory distribution in VCR-Bench
+              </p> 
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
+    <!-- RESULTS SECTION -->
+    <section class="hero is-light is-small">
+      <div class="hero-body has-text-centered">
+        <h1 class="title is-1 mathvista">
+          <span class="mathvista" style="vertical-align: middle">Experiment Results</span>
+        </h1>
+      </div>
+    </section>
     <section class="section">
       <div class="container">
+
+        <!-- Error Analysis -->
+        <div class="columns is-centered m-6">
+          <div class="column is-full has-text-centered content">
+            <h2 class="title is-3">Error Analysis</h2>
+            <div id="results-carousel" class="carousel results-carousel">
+
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="./static/images/error_case1.png" alt="" width="80%"/>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="./static/images/error_case2.png" alt="" width="80%"/>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="./static/images/error_case3.png" alt="" width="80%"/>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Visualization Examples -->
+        <div class="columns is-centered m-6">
+          <div class="column is-full has-text-centered content">
+            <h2 class="title is-3">Visualization Examples</h2>
+            <div id="results-carousel" class="carousel results-carousel">
+
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="./static/images/examples/precision_recall_FTR.png" alt="" width="80%"/>
+                  <p>Examples of precision and recall evaluation results of FTR.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="./static/images/examples/precision_recall_TSG.png" alt="" width="80%"/>
+                  <p>Examples of precision and recall evaluation results of TSG.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="./static/images/examples/precision_recall_TSR.png" alt="" width="80%"/>
+                  <p>Examples of precision and recall evaluation results of TSR.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="./static/images/examples/precision_recall_VKR.png" alt="" width="80%"/>
+                  <p>Examples of precision and recall evaluation results of VKR.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="./static/images/examples/precision_recall_VPA.png" alt="" width="80%"/>
+                  <p>Examples of precision and recall evaluation results of VPA.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="./static/images/examples/precision_recall_VTC.png" alt="" width="80%"/>
+                  <p>Examples of precision and recall evaluation results of VTC.</p>
+                </div>
+              </div>
+              <div class="box m-5">
+                <div class="content has-text-centered">
+                  <img src="./static/images/examples/precision_recall_VTG.png" alt="" width="80%"/>
+                  <p>Examples of precision and recall evaluation results of VTG.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
 
       </div>
     </section>
